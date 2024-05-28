@@ -15,18 +15,26 @@ end
 vim.opt.rtp:prepend(lazypath)
 
 require("lazy").setup({
-	{
-		'nvim-telescope/telescope.nvim', tag = '0.1.6',
-		-- or                              , branch = '0.1.x',
-		dependencies = { 'nvim-lua/plenary.nvim' }
-	},
-	{ "rose-pine/neovim", name = "rose-pine", lazy = false},
-	{"nvim-treesitter/nvim-treesitter", build = ":TSUpdate"},
-	"theprimeagen/harpoon",
-	"mbbill/undotree", -- press " u"
-	"tpope/vim-fugitive", -- press " gs", vim-style git management (insane!!!)
-	"neovim/nvim-lspconfig",
+    {
+        'nvim-telescope/telescope.nvim', tag = '0.1.6',
+        -- or                              , branch = '0.1.x',
+        dependencies = { 'nvim-lua/plenary.nvim' }
+    },
+    { "rose-pine/neovim", name = "rose-pine", lazy = false},
+    {"nvim-treesitter/nvim-treesitter", build = ":TSUpdate"},
+    "theprimeagen/harpoon",
+    "mbbill/undotree", -- press " u"
+    "tpope/vim-fugitive", -- press " gs", vim-style git management (insane!!!)
+    "neovim/nvim-lspconfig",
     "williamboman/mason.nvim",
+    {
+        "lervag/vimtex",
+        lazy = false,     -- we don't want to lazy load VimTeX
+        -- tag = "v2.15", -- uncomment to pin to a specific release
+        init = function()
+            -- VimTeX configuration goes here
+        end
+    },
 
 	-- From LSP Zero docs: https://lsp-zero.netlify.app/v3.x/blog/theprimeagens-config-from-2022.html
 	"williamboman/mason-lspconfig.nvim",
